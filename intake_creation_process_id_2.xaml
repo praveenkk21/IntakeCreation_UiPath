@@ -402,7 +402,7 @@
               <av:PointCollection x:Key="ConnectorLocation">200,279 200,329</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <TryCatch sap:VirtualizedContainerService.HintSize="1080,5913" sap2010:WorkflowViewState.IdRef="TryCatch_16">
+          <TryCatch sap:VirtualizedContainerService.HintSize="1062,5913" sap2010:WorkflowViewState.IdRef="TryCatch_16">
             <TryCatch.Try>
               <If sap:VirtualizedContainerService.HintSize="1024,5685" sap2010:WorkflowViewState.IdRef="If_60">
                 <If.Condition>
@@ -576,7 +576,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <TryCatch.Try>
-                        <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: KanTime-Login" sap:VirtualizedContainerService.HintSize="890,4463" sap2010:WorkflowViewState.IdRef="NApplicationCard_16" InteractionMode="DebuggerApi" IsIncognito="True" OpenMode="Always" ScopeGuid="8480f086-4651-41f2-b90f-97024104399d" Version="V2" WindowResize="Maximize">
+                        <uix:NApplicationCard AttachMode="SingleWindow" CloseMode="Never" DisplayName="Use Browser Chrome: KanTime-Login" sap:VirtualizedContainerService.HintSize="890,4463" sap2010:WorkflowViewState.IdRef="NApplicationCard_16" InteractionMode="DebuggerApi" IsIncognito="True" OpenMode="Always" ScopeGuid="8480f086-4651-41f2-b90f-97024104399d" Version="V2" WindowResize="Maximize">
                           <uix:NApplicationCard.Body>
                             <ActivityAction x:TypeArguments="x:Object">
                               <ActivityAction.Argument>
@@ -647,7 +647,7 @@
                                                 <x:Boolean x:Key="IsPinned">True</x:Boolean>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
-                                            <Sequence x:Key="login" sap:VirtualizedContainerService.HintSize="416,344" sap2010:WorkflowViewState.IdRef="Sequence_219">
+                                            <Sequence x:Key="login" sap:VirtualizedContainerService.HintSize="416,405" sap2010:WorkflowViewState.IdRef="Sequence_219">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -671,7 +671,7 @@
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
                                               </ui:InvokeWorkflowFile>
-                                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="login_page - invoke file" sap:VirtualizedContainerService.HintSize="354,92" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_197" UnSafe="False" WorkflowFileName="KT Pages\\login_page.xaml">
+                                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="login_page - invoke file" sap:VirtualizedContainerService.HintSize="354,153" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_197" UnSafe="False" WorkflowFileName="KT Pages\\login_page.xaml">
                                                 <ui:InvokeWorkflowFile.Arguments>
                                                   <InArgument x:TypeArguments="x:String" x:Key="login_id">
                                                     <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_715">login_id</CSharpValue>
@@ -685,8 +685,8 @@
                                                 </ui:InvokeWorkflowFile.Arguments>
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                    <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
                                               </ui:InvokeWorkflowFile>
@@ -1750,7 +1750,7 @@
                                                         </scg:Dictionary>
                                                       </sap:WorkflowViewStateService.ViewState>
                                                       <TryCatch.Try>
-                                                        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" CursorMotionType="Instant" DisplayName="Click 'push button  OK'" sap:VirtualizedContainerService.HintSize="334,107" sap2010:WorkflowViewState.IdRef="Click_36" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                                        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" CursorMotionType="Instant" DisplayName="Click 'push button  OK'" sap:VirtualizedContainerService.HintSize="334,107" sap2010:WorkflowViewState.IdRef="Click_36" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
                                                           <ui:Click.CursorPosition>
                                                             <ui:CursorPosition Position="Center">
                                                               <ui:CursorPosition.OffsetX>
@@ -1762,13 +1762,10 @@
                                                             </ui:CursorPosition>
                                                           </ui:Click.CursorPosition>
                                                           <ui:Click.Target>
-                                                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f9ddcad8-2eaf-47ec-b1e3-cf23172dcc71" InformativeScreenshot="ee341117c423c300d6442abaa5a002d8" Selector="&lt;wnd app='chrome.exe' omit:cls='Chrome_WidgetWin_1' omit:title='KanTime Medicare - Transfer Client - *' /&gt;&lt;ctrl omit:name='*kantimehealth.net says' role='dialog' /&gt;&lt;ctrl name='OK' role='push button' /&gt;">
+                                                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f9ddcad8-2eaf-47ec-b1e3-cf23172dcc71" InformativeScreenshot="ee341117c423c300d6442abaa5a002d8" Selector="&lt;wnd app='chrome.exe' omit:cls='Chrome_WidgetWin_1' omit:title='KanTime Medicare - Transfer Client - *' /&gt;&lt;ctrl omit:name='*kantimehealth.net says' role='dialog' /&gt;&lt;ctrl name='OK' role='push button' /&gt;" WaitForReady="COMPLETE">
                                                               <ui:Target.TimeoutMS>
                                                                 <InArgument x:TypeArguments="x:Int32" />
                                                               </ui:Target.TimeoutMS>
-                                                              <ui:Target.WaitForReady>
-                                                                <InArgument x:TypeArguments="ui:WaitForReady" />
-                                                              </ui:Target.WaitForReady>
                                                             </ui:Target>
                                                           </ui:Click.Target>
                                                           <sap:WorkflowViewStateService.ViewState>
@@ -1807,7 +1804,7 @@
                                                                   </scg:Dictionary>
                                                                 </sap:WorkflowViewStateService.ViewState>
                                                               </uix:NClick>
-                                                              <ui:Click AlterIfDisabled="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" CursorMotionType="Smooth" DelayBefore="1" DelayMS="1" DisplayName="Click 'push button  OK'" sap:VirtualizedContainerService.HintSize="354,130" sap2010:WorkflowViewState.IdRef="Click_37" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                                              <ui:Click AlterIfDisabled="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" CursorMotionType="Smooth" DelayBefore="1" DelayMS="1" DisplayName="Click 'push button  OK'" sap:VirtualizedContainerService.HintSize="354,130" sap2010:WorkflowViewState.IdRef="Click_37" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
                                                                 <ui:Click.CursorPosition>
                                                                   <ui:CursorPosition Position="Center">
                                                                     <ui:CursorPosition.OffsetX>
@@ -1819,13 +1816,10 @@
                                                                   </ui:CursorPosition>
                                                                 </ui:Click.CursorPosition>
                                                                 <ui:Click.Target>
-                                                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f9ddcad8-2eaf-47ec-b1e3-cf23172dcc71" InformativeScreenshot="ee341117c423c300d6442abaa5a002d8" Selector="&lt;wnd app='chrome.exe' omit:cls='Chrome_WidgetWin_1' omit:title='KanTime Medicare - Transfer Client - *' /&gt;&lt;ctrl omit:name='*kantimehealth.net says' role='dialog' /&gt;&lt;ctrl name='OK' role='push button' /&gt;">
+                                                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f9ddcad8-2eaf-47ec-b1e3-cf23172dcc71" InformativeScreenshot="ee341117c423c300d6442abaa5a002d8" Selector="&lt;wnd app='chrome.exe' omit:cls='Chrome_WidgetWin_1' omit:title='KanTime Medicare - Transfer Client - *' /&gt;&lt;ctrl omit:name='*kantimehealth.net says' role='dialog' /&gt;&lt;ctrl name='OK' role='push button' /&gt;" WaitForReady="INTERACTIVE">
                                                                     <ui:Target.TimeoutMS>
                                                                       <InArgument x:TypeArguments="x:Int32" />
                                                                     </ui:Target.TimeoutMS>
-                                                                    <ui:Target.WaitForReady>
-                                                                      <InArgument x:TypeArguments="ui:WaitForReady" />
-                                                                    </ui:Target.WaitForReady>
                                                                   </ui:Target>
                                                                 </ui:Click.Target>
                                                                 <sap:WorkflowViewStateService.ViewState>
@@ -2166,7 +2160,7 @@
               </If>
             </TryCatch.Try>
             <TryCatch.Catches>
-              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="1046,22" sap2010:WorkflowViewState.IdRef="Catch`1_42">
+              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="1028,22" sap2010:WorkflowViewState.IdRef="Catch`1_42">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>

@@ -167,7 +167,6 @@
       <Variable x:TypeArguments="x:String" Name="url" />
       <Variable x:TypeArguments="x:String" Name="intake_url" />
       <Variable x:TypeArguments="x:Boolean" Name="duplicate" />
-      <Variable x:TypeArguments="ui:Browser" Name="opened_browser" />
       <Variable x:TypeArguments="x:String" Name="location" />
       <Variable x:TypeArguments="x:String" Name="lob" />
       <Variable x:TypeArguments="x:String" Name="first_name" />
@@ -179,6 +178,7 @@
       <Variable x:TypeArguments="x:String" Name="extracted_error_logs_escaped" />
       <Variable x:TypeArguments="njl:JArray" Name="workflow_template_values" />
       <Variable x:TypeArguments="x:String" Name="status" />
+      <Variable x:TypeArguments="ui:Browser" Name="opened_browser" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -359,7 +359,7 @@
           <av:PointCollection x:Key="ConnectorLocation">200,177 200,227</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="DB_data_fetch - Invoke Workflow File (KT Pages\\DB_data_fetch.xaml)" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_137" UnSafe="False" WorkflowFileName="KT Pages\\DB_data_fetch.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="DB_data_fetch - Invoke Workflow File (KT Pages\\DB_data_fetch.xaml)" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_137" UnSafe="False" WorkflowFileName="KT Pages\\DB_data_fetch.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <OutArgument x:TypeArguments="x:String" x:Key="instance_code">
             <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_72">instance_code</CSharpReference>
@@ -382,9 +382,7 @@
           <OutArgument x:TypeArguments="x:String" x:Key="status">
             <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_101">status</CSharpReference>
           </OutArgument>
-          <InArgument x:TypeArguments="x:Int32" x:Key="process_id">
-            <Literal x:TypeArguments="x:Int32" Value="1" />
-          </InArgument>
+          <InArgument x:TypeArguments="x:Int32" x:Key="process_id">1</InArgument>
         </ui:InvokeWorkflowFile.Arguments>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -402,9 +400,9 @@
               <av:PointCollection x:Key="ConnectorLocation">200,279 200,329</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <TryCatch sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="TryCatch_16">
+          <TryCatch sap:VirtualizedContainerService.HintSize="1080,2975" sap2010:WorkflowViewState.IdRef="TryCatch_16">
             <TryCatch.Try>
-              <If sap:VirtualizedContainerService.HintSize="1024,5725" sap2010:WorkflowViewState.IdRef="If_60">
+              <If sap:VirtualizedContainerService.HintSize="1024,2747" sap2010:WorkflowViewState.IdRef="If_60">
                 <If.Condition>
                   <InArgument x:TypeArguments="x:Boolean">
                     <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_699">status=="active"</CSharpValue>
@@ -417,7 +415,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <If.Then>
-                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="990,5366" sap2010:WorkflowViewState.IdRef="Sequence_216">
+                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="990,2388" sap2010:WorkflowViewState.IdRef="Sequence_216">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -569,47 +567,47 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:LogMessage>
-                    <TryCatch DisplayName="Open browser + inatke creation" sap:VirtualizedContainerService.HintSize="928,4754" sap2010:WorkflowViewState.IdRef="TryCatch_15">
+                    <TryCatch DisplayName="Open browser + inatke creation" sap:VirtualizedContainerService.HintSize="928,1776" sap2010:WorkflowViewState.IdRef="TryCatch_15">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsPinned">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <TryCatch.Try>
-                        <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: KanTime-Login" sap:VirtualizedContainerService.HintSize="890,4503" sap2010:WorkflowViewState.IdRef="NApplicationCard_16" InteractionMode="DebuggerApi" IsIncognito="True" OpenMode="Always" ScopeGuid="8480f086-4651-41f2-b90f-97024104399d" Version="V2" WindowResize="Maximize">
+                        <uix:NApplicationCard AttachMode="SingleWindow" CloseMode="Never" DisplayName="Use Browser Chrome: KanTime-Login" sap:VirtualizedContainerService.HintSize="751,1525" sap2010:WorkflowViewState.IdRef="NApplicationCard_16" InteractionMode="DebuggerApi" IsIncognito="True" OpenMode="Always" ScopeGuid="8480f086-4651-41f2-b90f-97024104399d" Version="V2" WindowResize="Maximize">
                           <uix:NApplicationCard.Body>
                             <ActivityAction x:TypeArguments="x:Object">
                               <ActivityAction.Argument>
                                 <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                               </ActivityAction.Argument>
-                              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="856,4286" sap2010:WorkflowViewState.IdRef="Sequence_243">
+                              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="717,1308" sap2010:WorkflowViewState.IdRef="Sequence_243">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <Sequence DisplayName="Intake creation block" sap:VirtualizedContainerService.HintSize="794,4199" sap2010:WorkflowViewState.IdRef="Sequence_242">
+                                <Sequence DisplayName="Intake creation block" sap:VirtualizedContainerService.HintSize="655,1221" sap2010:WorkflowViewState.IdRef="Sequence_242">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                       <x:Boolean x:Key="IsPinned">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <ui:ForEach x:TypeArguments="njl:JToken" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="732,4084" sap2010:WorkflowViewState.IdRef="ForEach`1_6">
+                                  <ui:ForEach x:TypeArguments="njl:JToken" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="593,1106" sap2010:WorkflowViewState.IdRef="ForEach`1_6">
                                     <ui:ForEach.Body>
                                       <ActivityAction x:TypeArguments="njl:JToken">
                                         <ActivityAction.Argument>
                                           <DelegateInArgument x:TypeArguments="njl:JToken" Name="currentJToken" />
                                         </ActivityAction.Argument>
-                                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="698,3895" sap2010:WorkflowViewState.IdRef="Sequence_241">
+                                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="559,917" sap2010:WorkflowViewState.IdRef="Sequence_241">
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                               <x:Boolean x:Key="IsPinned">True</x:Boolean>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <Switch x:TypeArguments="x:String" DisplayName="Switch" sap:VirtualizedContainerService.HintSize="636,3810" sap2010:WorkflowViewState.IdRef="Switch`1_3">
+                                          <Switch x:TypeArguments="x:String" DisplayName="Switch" sap:VirtualizedContainerService.HintSize="497,832" sap2010:WorkflowViewState.IdRef="Switch`1_3">
                                             <Switch.Default>
                                               <Sequence sap:VirtualizedContainerService.HintSize="416,221" sap2010:WorkflowViewState.IdRef="Sequence_240">
                                                 <sap:WorkflowViewStateService.ViewState>
@@ -647,7 +645,7 @@
                                                 <x:Boolean x:Key="IsPinned">True</x:Boolean>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
-                                            <Sequence x:Key="login" sap:VirtualizedContainerService.HintSize="416,344" sap2010:WorkflowViewState.IdRef="Sequence_219">
+                                            <Sequence x:Key="login" sap:VirtualizedContainerService.HintSize="416,405" sap2010:WorkflowViewState.IdRef="Sequence_219">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -671,7 +669,7 @@
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
                                               </ui:InvokeWorkflowFile>
-                                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="login_page - invoke file" sap:VirtualizedContainerService.HintSize="354,92" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_197" UnSafe="False" WorkflowFileName="KT Pages\\login_page.xaml">
+                                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="login_page - invoke file" sap:VirtualizedContainerService.HintSize="354,153" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_197" UnSafe="False" WorkflowFileName="KT Pages\\login_page.xaml">
                                                 <ui:InvokeWorkflowFile.Arguments>
                                                   <InArgument x:TypeArguments="x:String" x:Key="login_id">
                                                     <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_715">login_id</CSharpValue>
@@ -685,8 +683,8 @@
                                                 </ui:InvokeWorkflowFile.Arguments>
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                    <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
                                               </ui:InvokeWorkflowFile>
@@ -2152,12 +2150,8 @@
                         <InArgument x:TypeArguments="x:String" x:Key="argfilepath">
                           <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_804">Directory.GetCurrentDirectory().ToString()</CSharpValue>
                         </InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="argClaimid">
-                          <Literal x:TypeArguments="x:String">Error</Literal>
-                        </InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="argLogtext">
-                          <Literal x:TypeArguments="x:String">The process id is in inactive status</Literal>
-                        </InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="argClaimid">Error</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="argLogtext">The process id is in inactive status</InArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -2186,9 +2180,7 @@
                       <InArgument x:TypeArguments="x:String" x:Key="argfilepath">
                         <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_806">System.IO.Directory.GetCurrentDirectory().ToString()</CSharpValue>
                       </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="argClaimid">
-                        <Literal x:TypeArguments="x:String">Error</Literal>
-                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="argClaimid">Error</InArgument>
                       <InArgument x:TypeArguments="x:String" x:Key="argLogtext">
                         <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_805">exception.Source.ToString() + " due to : " + exception.Message.ToString()</CSharpValue>
                       </InArgument>
