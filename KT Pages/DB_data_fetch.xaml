@@ -6,10 +6,12 @@
     <x:Property Name="processmaster_data" Type="OutArgument(sd:DataTable)" />
     <x:Property Name="data_template_values" Type="OutArgument(njl:JObject)" />
     <x:Property Name="workflow_template_values" Type="OutArgument(njl:JArray)" />
+    <x:Property Name="status" Type="OutArgument(x:String)" />
+    <x:Property Name="process_id" Type="InArgument(x:Int32)" />
   </x:Members>
   <sap2010:Annotation.AnnotationText>UPTF00000088eyI8SGVscExpbms+a19fQmFja2luZ0ZpZWxkIjpudWxsLCI8SW5pdGlhbFRvb2x0aXA+a19fQmFja2luZ0ZpZWxkIjpudWxsLCI8VmVyc2lvbj5rX19CYWNraW5nRmllbGQiOjF9</sap2010:Annotation.AnnotationText>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>682,770</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>814,1755</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -41,6 +43,9 @@
       <x:String>Newtonsoft.Json.Linq</x:String>
       <x:String>UiPath.Database</x:String>
       <x:String>System.IO</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -120,9 +125,10 @@
       <AssemblyReference>System.Private.Uri</AssemblyReference>
       <AssemblyReference>System.Collections</AssemblyReference>
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DB_data_fetch" sap:VirtualizedContainerService.HintSize="496,623" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="DB_data_fetch" sap:VirtualizedContainerService.HintSize="824,1690" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="njl:JObject" Name="JsonArray" />
     </Sequence.Variables>
@@ -131,7 +137,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Getting DB details" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="TryCatch_7">
+    <TryCatch DisplayName="Getting DB details" sap:VirtualizedContainerService.HintSize="762,92" sap2010:WorkflowViewState.IdRef="TryCatch_7">
       <TryCatch.Variables>
         <Variable x:TypeArguments="njl:JObject" Name="jsonArray" />
       </TryCatch.Variables>
@@ -142,7 +148,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_5">
+        <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonSample="{x:Null}" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_5">
           <ui:DeserializeJson.JsonObject>
             <OutArgument x:TypeArguments="njl:JObject">
               <CSharpReference x:TypeArguments="njl:JObject" sap2010:WorkflowViewState.IdRef="CSharpReference`1_49">JsonArray</CSharpReference>
@@ -156,10 +162,10 @@
         </ui:DeserializeJson>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="422,472" sap2010:WorkflowViewState.IdRef="Catch`1_14">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,22" sap2010:WorkflowViewState.IdRef="Catch`1_14">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
@@ -191,9 +197,7 @@
                   <InArgument x:TypeArguments="x:String" x:Key="argfilepath">
                     <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_210">System.IO.Directory.GetCurrentDirectory().ToString()</CSharpValue>
                   </InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="argClaimid">
-                    <Literal x:TypeArguments="x:String">Error</Literal>
-                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="argClaimid">Error</InArgument>
                   <InArgument x:TypeArguments="x:String" x:Key="argLogtext">
                     <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_186">exception.Source.ToString() + " due to : " + exception.Message.ToString()</CSharpValue>
                   </InArgument>
@@ -202,7 +206,7 @@
             </Sequence>
           </ActivityAction>
         </Catch>
-        <Catch x:TypeArguments="si:FileNotFoundException" sap:VirtualizedContainerService.HintSize="422,22" sap2010:WorkflowViewState.IdRef="Catch`1_15">
+        <Catch x:TypeArguments="si:FileNotFoundException" sap:VirtualizedContainerService.HintSize="404,22" sap2010:WorkflowViewState.IdRef="Catch`1_15">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -237,9 +241,7 @@
                   <InArgument x:TypeArguments="x:String" x:Key="argfilepath">
                     <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_211">System.IO.Directory.GetCurrentDirectory().ToString()</CSharpValue>
                   </InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="argClaimid">
-                    <Literal x:TypeArguments="x:String">Error</Literal>
-                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="argClaimid">Error</InArgument>
                   <InArgument x:TypeArguments="x:String" x:Key="argLogtext">
                     <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_191">exception.Source.ToString() + " due to : " + exception.Message.ToString()</CSharpValue>
                   </InArgument>
@@ -248,7 +250,7 @@
             </Sequence>
           </ActivityAction>
         </Catch>
-        <Catch x:TypeArguments="s:NullReferenceException" sap:VirtualizedContainerService.HintSize="422,22" sap2010:WorkflowViewState.IdRef="Catch`1_16">
+        <Catch x:TypeArguments="s:NullReferenceException" sap:VirtualizedContainerService.HintSize="404,22" sap2010:WorkflowViewState.IdRef="Catch`1_16">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -281,7 +283,7 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="762,92" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_25">
@@ -317,10 +319,10 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
-    <TryCatch DisplayName="Connect MSSQL" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="TryCatch_8">
+    <TryCatch DisplayName="Connect MSSQL" sap:VirtualizedContainerService.HintSize="762,674" sap2010:WorkflowViewState.IdRef="TryCatch_8">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -378,9 +380,7 @@
                   <InArgument x:TypeArguments="x:String" x:Key="argfilepath">
                     <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_212">System.IO.Directory.GetCurrentDirectory().ToString()</CSharpValue>
                   </InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="argClaimid">
-                    <Literal x:TypeArguments="x:String">Error</Literal>
-                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="argClaimid">Error</InArgument>
                   <InArgument x:TypeArguments="x:String" x:Key="argLogtext">
                     <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_200">exception.Source.ToString() + " due to : " + exception.Message.ToString()</CSharpValue>
                   </InArgument>
@@ -391,7 +391,7 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Run Query" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="ExecuteQuery_6" Sql="select * from processmaster">
+    <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Run Query" sap:VirtualizedContainerService.HintSize="762,154" sap2010:WorkflowViewState.IdRef="ExecuteQuery_6">
       <ui:ExecuteQuery.DataTable>
         <OutArgument x:TypeArguments="sd:DataTable">
           <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_53">processmaster_data</CSharpReference>
@@ -405,17 +405,22 @@
       <ui:ExecuteQuery.Parameters>
         <scg:Dictionary x:TypeArguments="x:String, Argument" />
       </ui:ExecuteQuery.Parameters>
+      <ui:ExecuteQuery.Sql>
+        <InArgument x:TypeArguments="x:String">
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_214">"select * from processmaster where process_id="+process_id</CSharpValue>
+        </InArgument>
+      </ui:ExecuteQuery.Sql>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ExecuteQuery>
-    <Parallel DisplayName="Template trace" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="Parallel_6">
+    <Parallel DisplayName="Template trace" sap:VirtualizedContainerService.HintSize="762,268" sap2010:WorkflowViewState.IdRef="Parallel_6">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -454,14 +459,26 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:LogMessage>
     </Parallel>
-    <Parallel DisplayName="Deserialize data" sap:VirtualizedContainerService.HintSize="434,75" sap2010:WorkflowViewState.IdRef="Parallel_5">
+    <Assign sap:VirtualizedContainerService.HintSize="762,122" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">
+          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_56">status</CSharpReference>
+        </OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_213">processmaster_data.Rows[0]["status"].ToString()</CSharpValue>
+        </InArgument>
+      </Assign.Value>
+    </Assign>
+    <Parallel DisplayName="Deserialize data" sap:VirtualizedContainerService.HintSize="762,200" sap2010:WorkflowViewState.IdRef="Parallel_5">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="334,100" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_6">
+      <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonSample="{x:Null}" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="334,130" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_6">
         <ui:DeserializeJson.JsonObject>
           <OutArgument x:TypeArguments="njl:JObject">
             <CSharpReference x:TypeArguments="njl:JObject" sap2010:WorkflowViewState.IdRef="CSharpReference`1_54">data_template_values</CSharpReference>
@@ -478,7 +495,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:DeserializeJson>
-      <ui:DeserializeJsonArray DisplayName="Deserialize JSON Array" sap:VirtualizedContainerService.HintSize="334,100" sap2010:WorkflowViewState.IdRef="DeserializeJsonArray_3">
+      <ui:DeserializeJsonArray DisplayName="Deserialize JSON Array" sap:VirtualizedContainerService.HintSize="334,130" sap2010:WorkflowViewState.IdRef="DeserializeJsonArray_3">
         <ui:DeserializeJsonArray.JsonArray>
           <OutArgument x:TypeArguments="njl:JArray">
             <CSharpReference x:TypeArguments="njl:JArray" sap2010:WorkflowViewState.IdRef="CSharpReference`1_55">workflow_template_values</CSharpReference>

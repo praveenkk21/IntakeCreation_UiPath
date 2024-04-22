@@ -2,7 +2,7 @@
   "name": "KanTime_RTB",
   "projectId": "020d225c-eb75-4ca4-bffb-eabb577ed536",
   "description": "KanTime_RTB",
-  "main": "intake_creation.xaml",
+  "main": "intake_creation_process_id_1.xaml",
   "dependencies": {
     "UiPath.Database.Activities": "[1.8.2-preview]",
     "UiPath.Excel.Activities": "[2.23.2-preview]",
@@ -52,14 +52,20 @@
   "expressionLanguage": "CSharp",
   "entryPoints": [
     {
-      "filePath": "intake_creation_old.xaml",
-      "uniqueId": "99293b21-4fb9-40f3-8c37-696718ae74a8",
+      "filePath": "old\\intake_creation_old.xaml",
+      "uniqueId": "d4b11185-58ed-4232-a2fa-7a5f4bfbda57",
       "input": [],
       "output": []
     },
     {
-      "filePath": "intake_creation.xaml",
-      "uniqueId": "8fee2620-6028-484a-a751-a248cb3c068d",
+      "filePath": "intake_creation_process_id_1.xaml",
+      "uniqueId": "4bc5446e-7e46-41e8-add9-d3e1e3ac5f3e",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "intake_creation_process_id_2.xaml",
+      "uniqueId": "2401f64e-ee6b-486e-8dfa-f36dc5214945",
       "input": [],
       "output": []
     }
