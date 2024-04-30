@@ -576,7 +576,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <TryCatch.Try>
-                        <uix:NApplicationCard AttachMode="SingleWindow" CloseMode="Never" DisplayName="Use Browser Chrome: KanTime-Login" sap:VirtualizedContainerService.HintSize="890,4463" sap2010:WorkflowViewState.IdRef="NApplicationCard_16" InteractionMode="DebuggerApi" IsIncognito="True" OpenMode="Always" ScopeGuid="8480f086-4651-41f2-b90f-97024104399d" Version="V2" WindowResize="Maximize">
+                        <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: KanTime-Login" sap:VirtualizedContainerService.HintSize="890,4463" sap2010:WorkflowViewState.IdRef="NApplicationCard_16" InteractionMode="DebuggerApi" IsIncognito="True" OpenMode="Always" ScopeGuid="8480f086-4651-41f2-b90f-97024104399d" Version="V2" WindowResize="Maximize">
                           <uix:NApplicationCard.Body>
                             <ActivityAction x:TypeArguments="x:Object">
                               <ActivityAction.Argument>
